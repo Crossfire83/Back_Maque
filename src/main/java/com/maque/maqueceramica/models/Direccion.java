@@ -1,5 +1,6 @@
 package com.maque.maqueceramica.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,9 +26,10 @@ public class Direccion {
 	private String cp;
 	private String entre_calles;
 	
-	@ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+
 	
 	@OneToOne(mappedBy = "direccion")
     private Pedidos pedido;

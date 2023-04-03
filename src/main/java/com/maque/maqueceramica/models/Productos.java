@@ -1,5 +1,7 @@
 package com.maque.maqueceramica.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,14 +24,15 @@ public class Productos {
 	private String descripcion;
 	private double precio;
 	private String uRL_Imagen;
-
+	
+	@OneToMany(mappedBy = "productos")
+    private List<Carrito> carritos;
+	
 	@ManyToOne
     @JoinColumn(name = "categorias_id")
     private Categorias categorias;
 	
-	@ManyToOne
-	@JoinColumn(name = "carrito_id")
-	private Carrito carrito;
+
 	
 	public Productos() {
 

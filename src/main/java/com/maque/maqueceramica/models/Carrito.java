@@ -8,31 +8,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "carrito")
 public class Carrito {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
-    private Long id;
-    
-    private Integer cantidad;
-    private Float precio;
-    
-    @OneToOne
-    @JoinColumn(name = "usuario_id", unique = true)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
+	private Long id;
+	private Integer cantidad;
+	private Float precio;
+	
+	@ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    
-    @OneToOne(mappedBy = "carrito")
-    private Pedidos pedido;
-    
-    @OneToMany(mappedBy = "carrito")
-    private List<Productos> productos;
-
+	
+	@OneToMany(mappedBy = "carrito")
+    private List<Pedidos> pedidos;
+	
+	@ManyToOne
+    @JoinColumn(name = "productos_id")
+    private Productos productos;
 	
 	public Carrito() {
 

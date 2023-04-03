@@ -26,14 +26,13 @@ public class Usuario {
 	private String password;
 	private String telefono;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private List<Pedidos> pedidos;
 
 	@OneToMany(mappedBy = "usuario")
 	private List<Direccion> direcciones;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
-	@JoinColumn(unique = true)
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Carrito carrito;
 
 	@OneToMany(mappedBy = "usuario")
