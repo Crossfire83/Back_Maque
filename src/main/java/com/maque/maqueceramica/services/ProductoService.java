@@ -22,8 +22,8 @@ public class ProductoService {
 		this.productoRepository = productoRepository;
 	}
 
-	/*
-	 * Create(Metodo para agregar un objeto del tipo Producto y guardarlo en la base
+	
+	/*  Create(Metodo para agregar un objeto del tipo Producto y guardarlo en la base
 	 * de datos). Si el producto existe no deberia actualizar la base de datos
 	 * porque seria un objeto duplicado.
 	 */
