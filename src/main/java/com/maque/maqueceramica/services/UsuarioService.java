@@ -23,7 +23,7 @@ public class UsuarioService {
 	public void crearUsuario(Usuario user) { // objeto del tipo producto
 		Optional<Usuario> correoBuscado = usuarioRepository.findByCorreo(user.getCorreo());
 		if (correoBuscado.isPresent()) {
-			throw new IllegalStateException("El producto con el nombre " + "[" + user.getCorreo() + "] ya existe.");
+			throw new IllegalStateException("El usuario con el correo " + "[" + user.getCorreo() + "] ya existe.");
 		} else {
 			usuarioRepository.save(user);
 		} // else //if
