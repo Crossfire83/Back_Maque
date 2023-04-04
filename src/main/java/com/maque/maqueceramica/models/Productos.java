@@ -32,8 +32,44 @@ public class Productos {
     @JoinColumn(name = "categorias_id")
     private Categorias categorias;
 	
-
 	
+	
+	public Productos(Long id, String sku, String nombre, String descripcion, double precio, String uRL_Imagen,
+			List<Carrito> carritos, Categorias categorias) {
+		this.id = id;
+		this.sku = sku;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.uRL_Imagen = uRL_Imagen;
+		this.carritos = carritos;
+		this.categorias = categorias;
+	}
+	
+	public List<Carrito> getCarritos() {
+		return carritos;
+	}
+
+
+
+	public void setCarritos(List<Carrito> carritos) {
+		this.carritos = carritos;
+	}
+
+
+
+	public Categorias getCategorias() {
+		return categorias;
+	}
+
+
+
+	public void setCategorias(Categorias categorias) {
+		this.categorias = categorias;
+	}
+
+
+
 	public Productos() {
 
 	}
@@ -95,4 +131,11 @@ public class Productos {
 		this.uRL_Imagen = uRL_Imagen;
 	}
 
+	@Override
+	public String toString() {
+		return "Productos [id=" + id + ", sku=" + sku + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", precio=" + precio + ", uRL_Imagen=" + uRL_Imagen + ", carritos=" + carritos + ", categorias="
+				+ categorias + "]";
+	}
+	
 }
