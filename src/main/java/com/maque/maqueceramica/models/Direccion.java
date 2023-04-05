@@ -27,6 +27,8 @@ public class Direccion {
 	private String entre_calles;
 	private String nombre;
 	private String apellido;
+	private String correo;
+	private String telefono;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
@@ -37,6 +39,22 @@ public class Direccion {
 
 	public Direccion() {
 
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	public String getNombre() {
@@ -72,7 +90,9 @@ public class Direccion {
 	}
 
 	public Direccion(Long id, String calle_numero, String interior, String colonia, String ciudad, String estado,
-			String cp, String entre_calles, String nombre, String apellido, Usuario usuario, Pedidos pedido) {
+			String cp, String entre_calles, String nombre, String apellido, String correo, String telefono,
+			Usuario usuario, Pedidos pedido) {
+		super();
 		this.id = id;
 		this.calle_numero = calle_numero;
 		this.interior = interior;
@@ -83,6 +103,8 @@ public class Direccion {
 		this.entre_calles = entre_calles;
 		this.nombre = nombre;
 		this.apellido = apellido;
+		this.correo = correo;
+		this.telefono = telefono;
 		this.usuario = usuario;
 		this.pedido = pedido;
 	}
@@ -149,5 +171,13 @@ public class Direccion {
 
 	public void setEntre_calles(String entre_calles) {
 		this.entre_calles = entre_calles;
+	}
+
+	@Override
+	public String toString() {
+		return "Direccion [id=" + id + ", calle_numero=" + calle_numero + ", interior=" + interior + ", colonia="
+				+ colonia + ", ciudad=" + ciudad + ", estado=" + estado + ", cp=" + cp + ", entre_calles="
+				+ entre_calles + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", usuario="
+				+ usuario + ", pedido=" + pedido + "]";
 	}
 }
