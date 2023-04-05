@@ -79,8 +79,10 @@ public class ProductoController {
 			@RequestParam(required = false) String nombre,
 			@RequestParam(required = false) String descripcion, 
 			@RequestParam(required = false) double precio,
-			@RequestParam(required = false) String url_Imagen) {
-				productoServicio.actualizarProducto(prodId, nombre, descripcion, url_Imagen, precio);
+			@RequestParam(required = false) String url_Imagen,
+			@RequestParam(required = false) String cantidad)
+			{
+				productoServicio.actualizarProducto(prodId, nombre, descripcion, url_Imagen, precio, cantidad);
 			}// updateProducto
 
 	// HTTP DELETE

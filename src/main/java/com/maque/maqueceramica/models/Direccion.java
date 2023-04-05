@@ -25,21 +25,54 @@ public class Direccion {
 	private String estado;
 	private String cp;
 	private String entre_calles;
-	
+	private String nombre;
+	private String apellido;
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
-	
 	@OneToOne(mappedBy = "direccion")
-    private Pedidos pedido;
-	
+	private Pedidos pedido;
+
 	public Direccion() {
 
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Pedidos getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedidos pedido) {
+		this.pedido = pedido;
+	}
+
 	public Direccion(Long id, String calle_numero, String interior, String colonia, String ciudad, String estado,
-			String cp, String entre_calles) {
+			String cp, String entre_calles, String nombre, String apellido, Usuario usuario, Pedidos pedido) {
 		this.id = id;
 		this.calle_numero = calle_numero;
 		this.interior = interior;
@@ -48,6 +81,10 @@ public class Direccion {
 		this.estado = estado;
 		this.cp = cp;
 		this.entre_calles = entre_calles;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.usuario = usuario;
+		this.pedido = pedido;
 	}
 
 	public Long getId() {

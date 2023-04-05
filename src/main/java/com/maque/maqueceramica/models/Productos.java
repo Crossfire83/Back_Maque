@@ -24,51 +24,52 @@ public class Productos {
 	private String descripcion;
 	private double precio;
 	private String uRL_Imagen;
-	
+	private String cantidad;
+
 	@OneToMany(mappedBy = "productos")
-    private List<Carrito> carritos;
-	
+	private List<Carrito> carritos;
+
 	@ManyToOne
-    @JoinColumn(name = "categorias_id")
-    private Categorias categorias;
-	
-	
-	
+	@JoinColumn(name = "categorias_id")
+	private Categorias categorias;
+
 	public Productos(Long id, String sku, String nombre, String descripcion, double precio, String uRL_Imagen,
-			List<Carrito> carritos, Categorias categorias) {
+			String cantidad, List<Carrito> carritos, Categorias categorias) {
+		super();
 		this.id = id;
 		this.sku = sku;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.uRL_Imagen = uRL_Imagen;
+		this.cantidad = cantidad;
 		this.carritos = carritos;
 		this.categorias = categorias;
 	}
-	
+
+	public String getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(String cantidad) {
+		this.cantidad = cantidad;
+	}
+
 	public List<Carrito> getCarritos() {
 		return carritos;
 	}
-
-
 
 	public void setCarritos(List<Carrito> carritos) {
 		this.carritos = carritos;
 	}
 
-
-
 	public Categorias getCategorias() {
 		return categorias;
 	}
 
-
-
 	public void setCategorias(Categorias categorias) {
 		this.categorias = categorias;
 	}
-
-
 
 	public Productos() {
 
@@ -137,5 +138,5 @@ public class Productos {
 				+ ", precio=" + precio + ", uRL_Imagen=" + uRL_Imagen + ", carritos=" + carritos + ", categorias="
 				+ categorias + "]";
 	}
-	
+
 }

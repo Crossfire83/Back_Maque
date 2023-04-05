@@ -49,7 +49,7 @@ public class ProductoService {
 
 	// Update para actualizar un producto
 
-	public void actualizarProducto(Long prodId, String nombre, String descripcion, String uRL_Imagen, double precio) {
+	public void actualizarProducto(Long prodId, String nombre, String descripcion, String uRL_Imagen, double precio, String cantidad) {
 		// Si el producto existe...
 		if (productoRepository.existsById(prodId)) {
 			// Entonces lo modifico
