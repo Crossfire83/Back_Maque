@@ -46,6 +46,12 @@ public class ProductoService {
 		return productoRepository.findById(prodId)
 				.orElseThrow(() -> new IllegalStateException("El Producto " + "con el id " + prodId + " no existe."));
 	}// getProducto
+	
+	// Read (leer un producto con un id especifico)
+	public List<Productos> buscarProductos(String prodId) {
+		return productoRepository.searchProduct(prodId)
+				.orElseThrow(() -> new IllegalStateException("Los productos que buscas no se encuentran."));
+	}// getProducto
 
 	// Update para actualizar un producto
 
