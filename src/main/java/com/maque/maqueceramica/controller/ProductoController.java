@@ -65,6 +65,11 @@ public class ProductoController {
 	public Productos getProducto(@PathVariable("prodId") Long prodId) {
 		return productoServicio.leerProducto(prodId);
 	}
+	
+	@GetMapping(path = "/multiple/{prodName}")
+	public List<Productos> getProducto(@PathVariable("prodName") String prodName) {
+		return productoServicio.buscarProducto(prodName);
+	}
 
 	// HTTP POST
 	@PostMapping
